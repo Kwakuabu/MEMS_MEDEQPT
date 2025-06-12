@@ -28,17 +28,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        // Redirect based on the user's role
-        return redirect()->intended(function () {
-            if (auth()->user()->role_id == 1) { // Assuming 1 is Clinician
-                return route('clinician.dashboard');
-            } elseif (auth()->user()->role_id == 2) { // Assuming 2 is Technician
-                return route('technician.dashboard');
-            } elseif (auth()->user()->role_id == 3) { // Assuming 3 is Engineer
-                return route('engineer.dashboard');
-            }
-            return '/'; // Fallback if no role matched
-        });
+        return redirect()->intended(route('dashboard', absolute: false));
     }
 
     /**
@@ -52,7 +42,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/'); // Redirect to the home page after logout
+        return redirect('/');
     }
 }
-
