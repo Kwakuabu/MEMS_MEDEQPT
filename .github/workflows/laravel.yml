@@ -1,9 +1,9 @@
-name: Run Laravel Tests
+name: Laravel CI Without Tests
 
 on: [push, pull_request]
 
 jobs:
-  laravel-tests:
+  laravel:
     runs-on: ubuntu-latest
 
     services:
@@ -36,7 +36,7 @@ jobs:
       - name: Copy .env.example to .env
         run: cp .env.example .env
 
-      - name: Generate APP_KEY
+      - name: Generate app key
         run: php artisan key:generate
 
       - name: Run migrations
@@ -49,6 +49,7 @@ jobs:
           DB_USERNAME: root
           DB_PASSWORD: root
 
-#      - name: Run Laravel tests
-#        run: php artisan test
+      # Tests skipped intentionally
+      # - name: Run Laravel tests
+      #   run: php artisan test
 
