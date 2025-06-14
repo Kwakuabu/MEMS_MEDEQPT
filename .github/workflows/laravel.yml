@@ -49,7 +49,7 @@ jobs:
           DB_USERNAME: root
           DB_PASSWORD: root
 
-       Tests skipped intentionally
+#       Tests skipped intentionally
       # - name: Run Laravel tests
       #   run: php artisan test
 
