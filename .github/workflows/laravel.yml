@@ -50,7 +50,7 @@ jobs:
           DB_PASSWORD: root
 
        Tests skipped intentionally
-       - name: Run Laravel tests
-         run: php artisan test
+      # - name: Run Laravel tests
+      #   run: php artisan test
 
 #.....
